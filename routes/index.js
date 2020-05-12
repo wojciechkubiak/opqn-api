@@ -6,6 +6,7 @@ const express = require("express");
 
 const PatronCtrl = require("../controllers/patron");
 const ProtegeCtrl = require("../controllers/protege");
+const ExamsCtrl = require("../controllers/exams");
 
 const router = express.Router();
 
@@ -29,5 +30,15 @@ router.post('/register-patron', PatronCtrl.registerPatron);
 router.post('/login-patron', PatronCtrl.loginPatron);
 router.post('/register-protege', ProtegeCtrl.registerProtege);
 router.post('/login-protege', ProtegeCtrl.loginProtege);
+router.get('/exams/:id', ExamsCtrl.getAllExams);
+router.get('/last-exam-date/:id', ExamsCtrl.getLastExamDate);
+router.get('/last-exam/:id', ExamsCtrl.getLastExam);
+router.post('/add-exam', auth, ExamsCtrl.postExam);
+router.put('/edit-exam/:id', auth, ExamsCtrl.editExam);
+router.delete('/delete-exam/:id', auth, ExamsCtrl.deleteExam);
+router.put('/edit-protege/:id', auth, ExamsCtrl.editProtege);
+router.put('/group-protege/:id', auth, ExamsCtrl.insertIntoGroup);
+router.put('/delete-protege/:id', auth. ExamsCtrl.deleteFromGroup);
+
 
 module.exports = router;
