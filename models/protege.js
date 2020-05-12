@@ -34,10 +34,6 @@ const Protege = sequelize.define("protege", {
       type: Sequelize.TEXT,
       allowNull: false
   },
-  idpatron: {
-      type: Sequelize.INTEGER,
-      allowNull: true
-  },
   createdAt: {
     type: Sequelize.DATE
   },

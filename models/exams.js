@@ -9,16 +9,20 @@ const Exam = sequelize.define("exam", {
     primaryKey: true,
     autoIncrement: true,
   },
-  examWeight: {
+  weight: {
     type: Sequelize.TEXT,
     allowNull: false,
   },
-  examGlucose: {
+  glucose: {
     type: Sequelize.TEXT,
     allowNull: false,
   },
-  examPressure: {
+  pressure: {
     type: Sequelize.TEXT,
+    allowNull: false,
+  },
+  date: {
+    type: Sequelize.DATE,
     allowNull: false,
   },
   createdAt: {
