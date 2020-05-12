@@ -8,10 +8,12 @@ const cors = require('cors');
 const indexRouter = require('./routes/index');
 import Protege from "./models/protege";
 import Patron from "./models/patron";
+import Exam from "./models/exams";
 
 const app = express();
 
 Patron.hasMany(Protege);
+Protege.hasMany(Exam);
 
 app.use(cors());
 app.use(logger('dev'));
