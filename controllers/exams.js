@@ -45,7 +45,7 @@ exports.getLastExam = (require, result, next) => {
   Exams.findAll({
     include: [{
       model: Protege,
-      where: {id: id},
+      where: {protegeId: id},
       limit: 1,
       order: [["date", "DESC"]],
     }]
