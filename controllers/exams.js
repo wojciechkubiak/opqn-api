@@ -43,14 +43,15 @@ exports.getLastExam = (require, result, next) => {
   const id = parseInt(require.params.id);
 
   Exams.findAll({
+    include: [{
+      model: Protege,
+      where: {id: id}
+    }],
     limit: 1,
     order: [["date", "DESC"]],
-    where: {
-      id: id,
-    }, 
-    include: [{
-      model: Protege
-    }]
+    // where: {
+    //   id: id,
+    // } 
   })
     .then((exams) => {
       result.status(200).json(exams);
