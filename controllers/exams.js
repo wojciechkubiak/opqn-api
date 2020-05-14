@@ -49,8 +49,7 @@ exports.getLastExam = (require, result, next) => {
       id: id,
     }, 
     include: [{
-      model: Protege,
-      required: true
+      model: Protege
     }]
   })
     .then((exams) => {
