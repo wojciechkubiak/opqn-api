@@ -54,7 +54,7 @@ exports.loginProtege = (require, result, next) => {
               expiresIn: 1440,
             }
           );
-          result.json({ token: token });
+          result.json({ token: token, id: protege.id });
         } else {
           result.status(400).json({ error: "Wrong password" });
         }

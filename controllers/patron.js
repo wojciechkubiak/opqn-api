@@ -46,7 +46,7 @@ exports.loginPatron = (require, result, next) => {
                 let token = jwt.sign(patron.dataValues, process.env.LOCAL_KEY || process.env.HR_KEY, {
                     expiresIn: 1440
                 })
-                result.json({token: token})
+                result.json({token: token, id: patron.id})
             } else {
                 result.status(400).json({error: "Wrong password"})
             }

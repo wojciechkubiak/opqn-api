@@ -1,25 +1,5 @@
 import Protege from "./../models/protege";
 
-exports.getProtegeID = (require, result, next) => {
-  const mail = require.params.id;
-
-  Protege.findAll({
-    limit: 1,
-    attributes: [
-      "id"
-    ],
-    where: {
-      mail: mail
-    }
-  })
-  .then(data => {
-    result.status(200).json(data);
-  })
-  .catch(error => {
-    result.status(400).json({error: error})
-  })
-}
-
 // update protege
 exports.editProtege = (require, result, next) => {
     const id = parseInt(require.params.id);
