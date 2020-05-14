@@ -4,9 +4,12 @@ const sequelize = require("../utils/connect");
 
 const Exam = sequelize.define("exam", {
   id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.UUID,
     allowNull: false,
-    primaryKey: true,
+    primaryKey: true
+  },
+  entry: {
+    type: Sequelize.INTEGER,
     autoIncrement: true,
   },
   weight: {
