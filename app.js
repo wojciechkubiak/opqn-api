@@ -13,6 +13,7 @@ import Exam from "./models/exams";
 const app = express();
 
 Patron.hasMany(Protege);
+Exam.belongsTo(Protege);
 Protege.hasMany(Exam);
 
 app.use(cors());
