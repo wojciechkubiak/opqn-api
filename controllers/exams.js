@@ -1,4 +1,5 @@
 import Exams from "./../models/exams";
+import Protege from "./../models/protege";
 
 // date of last exam for user
 exports.getLastExamDate = (require, result, next) => {
@@ -46,7 +47,11 @@ exports.getLastExam = (require, result, next) => {
     order: [["date", "DESC"]],
     where: {
       id: id,
-    },
+    }, 
+    include: [{
+      model: Protege,
+      required: true
+    }]
   })
     .then((exams) => {
       result.status(200).json(exams);
