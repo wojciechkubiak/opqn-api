@@ -4,10 +4,10 @@ const sequelize = require("../utils/connect");
 
 const Patron = sequelize.define("patron", {
   id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.UUID,
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    defaultValue: Sequelize.UUIDV4
   },
   firstname: {
       type: Sequelize.TEXT,
