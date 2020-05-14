@@ -13,8 +13,8 @@ import Exam from "./models/exams";
 const app = express();
 
 Patron.hasMany(Protege);
-Exam.belongsTo(Protege, {foreignKey: 'protegeId'});
-Protege.hasMany(Exam, {foreignKey: 'id'});
+Exam.belongsTo(Protege);
+Protege.hasMany(Exam);
 
 app.use(cors());
 app.use(logger('dev'));

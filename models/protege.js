@@ -1,13 +1,12 @@
 const Sequelize = require("sequelize");
-
 const sequelize = require("../utils/connect");
 
 const Protege = sequelize.define("protege", {
   id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.UUID,
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    defaultValue: Sequelize.UUIDV4
   },
   firstname: {
       type: Sequelize.TEXT,
@@ -40,6 +39,6 @@ const Protege = sequelize.define("protege", {
   updatedAt: {
     type: Sequelize.DATE
   }
-});
+}, {});
 
 module.exports = Protege;
