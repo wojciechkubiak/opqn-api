@@ -54,18 +54,7 @@ exports.loginProtege = (require, result, next) => {
               expiresIn: 1440,
             }
           );
-          Protege.findOne({
-            attributes: ['id'],
-            where: {
-              mail: require.body.mail
-            }
-          }).then(id => {
-            result.status(200).json({token: token, id: id});
-          })
-          .catch(error => {
-            result.status(400).json({error: error})
-          });
-
+          result.json({ token: token });
         } else {
           result.status(400).json({ error: "Wrong password" });
         }
