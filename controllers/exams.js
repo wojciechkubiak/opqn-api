@@ -41,7 +41,7 @@ exports.getAllExams = (require, result, next) => {
 // last exam for user
 exports.getLastExam = (require, result, next) => {
   const id = parseInt(require.params.id);
-
+  
   Exams.findAll({
     include: [{
       model: Protege,
