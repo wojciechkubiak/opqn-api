@@ -31,7 +31,7 @@ router.post('/register-patron', PatronCtrl.registerPatron);
 router.post('/login-patron', PatronCtrl.loginPatron);
 router.post('/register-protege', ProtegeCtrl.registerProtege);
 router.post('/login-protege', ProtegeCtrl.loginProtege);
-router.get('/exams/:id', auth, ExamsCtrl.getAllExams);
+router.get('/exams', auth, ExamsCtrl.getAllExams);
 router.get('/last-exam-date/:id', auth, ExamsCtrl.getLastExamDate);
 router.get('/last-exam/:id', auth, ExamsCtrl.getLastExam);
 router.post('/add-exam', auth, ExamsCtrl.postExam);

@@ -23,7 +23,8 @@ exports.getLastExamDate = (require, result, next) => {
 
 // all exams for user
 exports.getAllExams = (require, result, next) => {
-  const id = parseInt(require.params.id);
+  const id = require.user.id;
+  console.log(id);
 
   Exams.findAll({
     where: {
