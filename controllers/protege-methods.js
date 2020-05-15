@@ -2,7 +2,7 @@ import Protege from "./../models/protege";
 
 // update protege
 exports.editProtege = (require, result, next) => {
-    const id = parseInt(require.params.id);
+    const id = require.user.id;
   
     const upFirstname = require.body.firstname;
     const upLastname = require.body.lastname;
@@ -32,9 +32,9 @@ exports.editProtege = (require, result, next) => {
   
   // set protege patron
   exports.insertIntoGroup = (require, result, next) => {
-    const id = parseInt(require.params.id);
-  
-    const patronId = require.body.patronId;
+    const id = require.params.id;
+    
+    const patronId = require.user.id;
   
     Protege.update(
       {
@@ -55,7 +55,7 @@ exports.editProtege = (require, result, next) => {
   
   // delete protege patron (null)
   exports.deleteFromGroup = (require, result, next) => {
-    const id = parseInt(require.params.id);
+    const id = require.params.id;
   
     Protege.update(
       {

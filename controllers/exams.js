@@ -1,16 +1,17 @@
 import Exams from "./../models/exams";
 import Protege from "./../models/protege";
+import sequelize from "sequelize";
 
 // date of last exam for user
 exports.getLastExamDate = (require, result, next) => {
-  const id = parseInt(require.params.id);
+  const id = require.user.id;
 
   Exams.findAll({
     limit: 1,
     attributes: ["date"],
     order: [["date", "DESC"]],
     where: {
-      id: id,
+      protegeId: id,
     },
   })
     .then((exam) => {
@@ -24,7 +25,6 @@ exports.getLastExamDate = (require, result, next) => {
 // all exams for user
 exports.getAllExams = (require, result, next) => {
   const id = require.user.id;
-  console.log(id);
 
   Exams.findAll({
     where: {
@@ -41,7 +41,7 @@ exports.getAllExams = (require, result, next) => {
 
 // last exam for user
 exports.getLastExam = (require, result, next) => {
-  const id = parseInt(require.params.id);
+  const id = require.user.id;
   
   Exams.findAll({
     include: [{
@@ -65,7 +65,7 @@ exports.postExam = (require, result, next) => {
   const glucose = require.body.glucose;
   const pressure = require.body.pressure;
   const date = require.body.date;
-  const id = parseInt(require.body.id);
+  const id = require.user.id;
 
   Exams.create({
     weight: weight,
@@ -85,7 +85,7 @@ exports.postExam = (require, result, next) => {
 // put exam for exam id
 exports.editExam = (require, result, next) => {
   const id = parseInt(require.params.id);
-
+  const userId = require.user.id;
   const upWeight = require.body.weight;
   const upGlucose = require.body.glucose;
   const upPressure = require.body.pressure;
@@ -99,9 +99,10 @@ exports.editExam = (require, result, next) => {
       date: date,
     },
     {
-      where: {
-        id: id,
-      },
+      where: sequelize.and(
+        { id: id },
+        { protegeId: userId }
+      ),
     }
   )
     .then((res) => {
@@ -115,11 +116,13 @@ exports.editExam = (require, result, next) => {
 // delete exam
 exports.deleteExam = (require, result, next) => {
   const id = parseInt(require.params.id);
+  const userId = require.user.id;
 
   Exams.destroy({
-    where: {
-      id: id,
-    },
+    where: sequelize.and(
+      { id: id},
+      { protegeId: userId}
+    )
   })
     .then((res) => {
       result.send(`Deleted ${res}`);

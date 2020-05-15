@@ -32,12 +32,12 @@ router.post('/login-patron', PatronCtrl.loginPatron);
 router.post('/register-protege', ProtegeCtrl.registerProtege);
 router.post('/login-protege', ProtegeCtrl.loginProtege);
 router.get('/exams', auth, ExamsCtrl.getAllExams);
-router.get('/last-exam-date/:id', auth, ExamsCtrl.getLastExamDate);
-router.get('/last-exam/:id', auth, ExamsCtrl.getLastExam);
+router.get('/last-exam-date', auth, ExamsCtrl.getLastExamDate);
+router.get('/last-exam', auth, ExamsCtrl.getLastExam);
 router.post('/add-exam', auth, ExamsCtrl.postExam);
 router.put('/edit-exam/:id', auth, ExamsCtrl.editExam);
 router.delete('/delete-exam/:id', auth, ExamsCtrl.deleteExam);
-router.put('/edit-protege/:id', auth, ExamsMethodCtrl.editProtege);
+router.put('/edit-protege/', auth, ExamsMethodCtrl.editProtege);
 router.put('/group-protege/:id', auth, ExamsMethodCtrl.insertIntoGroup);
 router.put('/delete-protege/:id', auth, ExamsMethodCtrl.deleteFromGroup);
 
