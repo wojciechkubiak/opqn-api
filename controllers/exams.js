@@ -28,7 +28,7 @@ exports.getAllExams = (require, result, next) => {
 
   Exams.findAll({
     where: {
-      id: id,
+      protegeId: id,
     },
   })
     .then((exams) => {
