@@ -44,7 +44,7 @@ exports.loginPatron = (require, result, next) => {
         if(patron) {
             if(bcrypt.compareSync(require.body.password, patron.password)) {
                 let token = jwt.sign(patron.dataValues, process.env.LOCAL_KEY || process.env.HR_KEY, {
-                    expiresIn: 1440
+                    expiresIn: "7d"
                 })
                 result.json({token: token, id: patron.id})
             } else {

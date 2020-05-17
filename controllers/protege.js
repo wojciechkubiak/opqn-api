@@ -51,7 +51,7 @@ exports.loginProtege = (require, result, next) => {
             protege.dataValues,
             process.env.LOCAL_KEY || process.env.HR_KEY,
             {
-              expiresIn: 1440,
+              expiresIn: "7d"
             }
           );
           result.json({ token: token, id: protege.id });
