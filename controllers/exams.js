@@ -26,7 +26,7 @@ exports.getLastExamDate = (require, result, next) => {
 exports.getAllExams = (require, result, next) => {
   const id = require.user.id;
 
-  const date = new Date().getWeek();
+  // const date = new Date().getWeek();
 
   Exams.findAll({
     limit: 5,
