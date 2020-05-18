@@ -26,9 +26,16 @@ exports.getLastExamDate = (require, result, next) => {
 exports.getAllExams = (require, result, next) => {
   const id = require.user.id;
 
+  const date = new Date().getWeek();
+
   Exams.findAll({
+    limit: 7,
+    order: [["date", "DESC"]],
     where: {
-      protegeId: id,
+      $and: [
+        sequelize.where(sequelize.fn('WEEK', sequelize.col('date')), date),
+        { protegeId: id }
+      ]
     },
   })
     .then((exams) => {
