@@ -29,13 +29,14 @@ exports.getAllExams = (require, result, next) => {
   const date = new Date().getWeek();
 
   Exams.findAll({
-    limit: 7,
+    limit: 5,
     order: [["date", "DESC"]],
     where: {
-      $and: [
-        sequelize.where(sequelize.fn('WEEK', sequelize.col('date')), 21),
-        { protegeId: id }
-      ]
+      protegeId: id
+      // $and: [
+      //   sequelize.where(sequelize.fn('WEEK', sequelize.col('date')), 21),
+      //   { protegeId: id }
+      // ]
     },
   })
     .then((exams) => {
