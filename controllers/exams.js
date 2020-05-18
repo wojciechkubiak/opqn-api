@@ -33,7 +33,7 @@ exports.getAllExams = (require, result, next) => {
     order: [["date", "DESC"]],
     where: {
       $and: [
-        sequelize.where(sequelize.fn('WEEK', sequelize.col('date')), date),
+        sequelize.where(sequelize.fn('WEEK', sequelize.col('date')), 21),
         { protegeId: id }
       ]
     },
