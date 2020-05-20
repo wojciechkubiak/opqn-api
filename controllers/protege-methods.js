@@ -1,5 +1,23 @@
 import Protege from "./../models/protege";
 
+exports.getProtegeName = (require, result, next) => {
+  const id = require.user.id;
+
+  Exams.findAll({
+    limit: 1,
+    attributes: ["firstname", "lastname"],
+    where: {
+      protegeId: id,
+    },
+  })
+    .then((protege) => {
+      result.status(200).json(protege);
+    })
+    .catch((error) => {
+      result.status(400).json({ error: error });
+    });
+};
+
 // update protege
 exports.editProtege = (require, result, next) => {
     const id = require.user.id;

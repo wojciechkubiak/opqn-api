@@ -42,5 +42,6 @@ router.put('/edit-protege/', auth, ExamsMethodCtrl.editProtege);
 router.put('/group-protege/:id', auth, ExamsMethodCtrl.insertIntoGroup);
 router.put('/delete-protege/:id', auth, ExamsMethodCtrl.deleteFromGroup);
 router.get('/patron-proteges', auth, PatronMethodCtrl.getPatronsData);
+router.get('/protege-data', auth, ExamsMethodCtrl.getProtegeName);
 
 module.exports = router;
