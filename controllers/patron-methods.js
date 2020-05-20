@@ -16,6 +16,8 @@ exports.getPatronsData = (require, result, next) => {
           "firstname",
           "lastname"
         ],
+        limit: 2,
+        order: [["date", "DESC"]],
         include: [
           {
             model: Exams,
@@ -25,8 +27,6 @@ exports.getPatronsData = (require, result, next) => {
               "pressure",
               "date"
             ],
-            limit: 2,
-            order: [["date", "DESC"]],
           }
         ],
         where: {
