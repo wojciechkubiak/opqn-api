@@ -8,6 +8,7 @@ const PatronCtrl = require("../controllers/patron");
 const ProtegeCtrl = require("../controllers/protege");
 const ExamsCtrl = require("../controllers/exams");
 const ExamsMethodCtrl = require("../controllers/protege-methods");
+const PatronMethodCtrl = require("../controllers/patron-methods");
 
 const router = express.Router();
 
@@ -40,6 +41,6 @@ router.delete('/delete-exam/:id', auth, ExamsCtrl.deleteExam);
 router.put('/edit-protege/', auth, ExamsMethodCtrl.editProtege);
 router.put('/group-protege/:id', auth, ExamsMethodCtrl.insertIntoGroup);
 router.put('/delete-protege/:id', auth, ExamsMethodCtrl.deleteFromGroup);
-
+router.get('/patron-proteges', auth, PatronMethodCtrl.getPatronsData);
 
 module.exports = router;
