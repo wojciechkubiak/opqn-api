@@ -3,8 +3,7 @@ import Protege from "./../models/protege";
 exports.getProtegeName = (require, result, next) => {
   const id = require.user.id;
 
-  Exams.findAll({
-    limit: 1,
+  Protege.findOne({
     attributes: ["firstname", "lastname"],
     where: {
       protegeId: id,
