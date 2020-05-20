@@ -6,7 +6,7 @@ exports.getProtegeName = (require, result, next) => {
   Protege.findOne({
     attributes: ["firstname", "lastname"],
     where: {
-      protegeId: id,
+      id: id,
     },
   })
     .then((protege) => {
