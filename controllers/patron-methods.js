@@ -8,13 +8,13 @@ exports.getPatronsData = (require, result, next) => {
 
   Patron.findAll({
     //   limit: 2,
-    attributes: ["id"],
+    attributes: ["id", "patronid"],
     include: [
       {
         model: Protege,
         attributes: [
-          "firstname",
-          "lastname"
+          ["firstname", "firstname"],
+          ["lastname", "lastname"]
         ],
         include: [
           {
@@ -22,10 +22,10 @@ exports.getPatronsData = (require, result, next) => {
             // limit: 2,
             // order: [["date", "DESC"]],
             attributes: [
-              "weight",
-              "glucose",
-              "pressure",
-              "date"
+              ["weight", "weight"],
+              ["glucose", "glucose"],
+              ["pressure", "pressure"],
+              ["date", "date"]
             ]
           }
         ],
