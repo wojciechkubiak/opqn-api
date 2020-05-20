@@ -19,8 +19,8 @@ exports.getPatronsData = (require, result, next) => {
         include: [
           {
             model: Exams,
-            limit: 2,
-            order: [["date", "DESC"]],
+            // limit: 2,
+            // order: [["date", "DESC"]],
             attributes: [
               "weight",
               "glucose",
