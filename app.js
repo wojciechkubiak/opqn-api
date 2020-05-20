@@ -13,10 +13,8 @@ import Exam from "./models/exams";
 const app = express();
 
 Patron.hasMany(Protege);
-Protege.belongsTo(Patron);
-Protege.hasMany(Exam);
 Exam.belongsTo(Protege);
-
+Protege.hasMany(Exam);
 
 app.use(cors());
 app.use(logger('dev'));
