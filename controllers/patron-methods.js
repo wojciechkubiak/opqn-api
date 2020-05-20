@@ -14,11 +14,11 @@ exports.getPatronsData = (require, result, next) => {
         include: [
           {
             model: Exams,
-            where: {
-              id: id,
-            },
-          },
+          }
         ],
+        where: {
+          id: id
+        }
       },
     ],
   })
