@@ -17,7 +17,7 @@ exports.getPatronsData = (require, result, next) => {
           }
         ],
         where: {
-          id: id
+          patronId: id
         }
       },
     ],
