@@ -18,7 +18,7 @@ exports.getPatronsData = (require, result, next) => {
         include: [
           {
             model: Exams,
-            separate: true,
+            // separate: true,
             attributes: [
               "weight",
               "glucose",
