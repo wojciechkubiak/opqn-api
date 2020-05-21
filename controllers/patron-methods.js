@@ -7,7 +7,7 @@ exports.getPatronsData = (require, result, next) => {
   const id = require.user.id;
 
   Patron.findAll({
-    attributes: ["firstname", "lastname"],
+    attributes: ["id"],
     include: [
       {
         model: Protege,
@@ -19,14 +19,14 @@ exports.getPatronsData = (require, result, next) => {
         include: [
           {
             model: Exams,
-            limit: 7,
-            order: [["date", "DESC"]],
+            limit: 30,
             attributes: [
               "weight",
               "glucose",
               "pressure",
               "date"
             ],
+            order: [["date", "DESC"]],
           }
         ],
         where: {
