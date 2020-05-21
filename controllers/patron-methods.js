@@ -8,14 +8,11 @@ exports.getPatronsData = (require, result, next) => {
 
   Patron.findAll({
     attributes: ["id"],
-    where: {
-      patronId: id
-    },
     include: [
       {
         model: Protege,
         offset: 0,
-        limit: 7,
+        // limit: 7,
         attributes: [
           "firstname",
           "lastname"
@@ -24,6 +21,7 @@ exports.getPatronsData = (require, result, next) => {
           {
             model: Exams,
             separate: true,
+            limit: 7,
             attributes: [
               "weight",
               "glucose",
@@ -32,7 +30,10 @@ exports.getPatronsData = (require, result, next) => {
             ],
             order: [["date", "DESC"]],
           }
-        ]
+        ],
+        where: {
+          patronId: id
+        }
       },
     ],
   })
