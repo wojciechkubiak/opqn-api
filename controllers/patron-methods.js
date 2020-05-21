@@ -6,7 +6,7 @@ import sequelize from "sequelize";
 exports.getPatronsData = (require, result, next) => {
   const id = require.user.id;
 
-  Patron.findAll({
+  Patron.findOne({
     attributes: ["id"],
     include: [
       {
