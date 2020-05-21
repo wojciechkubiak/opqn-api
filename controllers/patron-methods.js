@@ -11,7 +11,7 @@ exports.getPatronsData = (require, result, next) => {
     include: [
       {
         model: Protege,
-        offset: 0,
+        // offset: 0,
         limit: 7,
         attributes: [
           "firstname",
