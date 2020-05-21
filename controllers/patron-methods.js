@@ -17,11 +17,10 @@ exports.getPatronsData = (require, result, next) => {
           "firstname",
           "lastname"
         ],
-        
         include: [
           {
             model: Exams,
-            separate: true,
+            // separate: true,
             attributes: [
               "weight",
               "glucose",
