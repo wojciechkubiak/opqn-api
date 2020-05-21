@@ -7,7 +7,7 @@ exports.getPatronsData = (require, result, next) => {
   const id = require.user.id;
 
   Patron.findAll({
-    attributes: [""],
+    attributes: ["firstname", "lastname"],
     include: [
       {
         model: Protege,
