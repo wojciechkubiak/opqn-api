@@ -11,6 +11,8 @@ exports.getPatronsData = (require, result, next) => {
     include: [
       {
         model: Protege,
+        offset: 0,
+        limit: 7,
         attributes: [
           "firstname",
           "lastname"
@@ -19,7 +21,7 @@ exports.getPatronsData = (require, result, next) => {
         include: [
           {
             model: Exams,
-            limit: 30,
+            separate: true,
             attributes: [
               "weight",
               "glucose",
