@@ -6,12 +6,15 @@ import sequelize from "sequelize";
 exports.getPatronsData = (require, result, next) => {
   const id = require.user.id;
 
-  Patron.findOne({
+  Patron.findAll({
     attributes: ["id"],
+    where: {
+      patronId: id
+    },
     include: [
       {
         model: Protege,
-        // offset: 0,
+        offset: 0,
         limit: 7,
         attributes: [
           "firstname",
@@ -20,7 +23,7 @@ exports.getPatronsData = (require, result, next) => {
         include: [
           {
             model: Exams,
-            // separate: true,
+            separate: true,
             attributes: [
               "weight",
               "glucose",
@@ -29,10 +32,7 @@ exports.getPatronsData = (require, result, next) => {
             ],
             order: [["date", "DESC"]],
           }
-        ],
-        where: {
-          patronId: id
-        }
+        ]
       },
     ],
   })
