@@ -64,6 +64,14 @@ exports.signProtege = (require, result, next) => {
         }
       }
   )
-      .then(res => result.send(res))
+      .then((res) => {
+        if(res) {
+          result.json({
+            status: `${res.phone}`
+          })
+        } else {
+          result.status(400).json({ error: "Wrong phone" });
+        }
+      })
       .catch(error => result.status(400).json({ error: error }));
 }
