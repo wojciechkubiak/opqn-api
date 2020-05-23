@@ -66,7 +66,7 @@ exports.signProtege = (require, result, next) => {
   )
       .then((res) => {
         if(res) {
-          result.json({ status: phone })
+          result.json({ status: res.phone })
         } else {
           result.status(400).json({ error: "Wrong phone" });
         }
