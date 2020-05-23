@@ -1,7 +1,10 @@
 import Protege from "./../models/protege";
 import Patron from "./../models/patron";
 import Exams from "./../models/exams";
+const Op = Sequelize.Op;
+
 import sequelize from "sequelize";
+import Sequelize from "sequelize";
 
 exports.getPatronsData = (require, result, next) => {
   const id = require.user.id;
@@ -46,11 +49,20 @@ exports.signProtege = (require, result, next) => {
   const phone = require.body.phone;
   const patron = require.user.id;
 
-  Protege.update(
-      { patronId: patron },
-      { where: {
-        $and: [ { phone: phone } , { patronId: null } ]
-      }}
+  Protege.update({
+        patronId: patron
+      }, {
+        where: {
+          [Op.and]: [{
+              patronId: {
+                [Op.eq]: null
+              },
+              phone: {
+                [Op.eq]: phone
+              }
+          }]
+        }
+      }
   )
       .then(res => result.send(res))
       .catch(error => result.status(400).json({ error: error }));
