@@ -49,24 +49,24 @@ exports.signProtege = (require, result, next) => {
   const phone = require.body.phone;
   const patron = require.user.id;
 
-  Protege.update({
-        patronId: patron
-      }, {
-        where: {
-          [Op.and]: [{
-              patronId: {
-                [Op.eq]: null
-              },
-              phone: {
-                [Op.eq]: phone
-              }
-          }]
-        }
-      }
-  )
-      .then((res) => {
+        Protege.update({
+            patronId: patron
+          }, {
+            where: {
+              [Op.and]: [{
+                  patronId: {
+                    [Op.eq]: null
+                  },
+                  phone: {
+                    [Op.eq]: phone
+                  }
+              }]
+            }
+          }
+          )
+      .then(res => {
         if(res) {
-          result.json({ status: res.phone })
+          result.json({ status: res })
         } else {
           result.status(400).json({ error: "Wrong phone" });
         }
