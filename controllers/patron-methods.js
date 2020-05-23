@@ -43,17 +43,15 @@ exports.getPatronsData = (require, result, next) => {
 };
 
 exports.signProtege = (require, result, next) => {
-  const firstname = require.body.firstname;
-  const lastname = require.body.lastname;
-  const patron = result.user.id;
+  const phone = require.body.phone;
+  const patron = require.user.id;
 
   Protege.update(
       { patronId: patron },
       { where: {
         $and: [
           {
-            firstname: { $eq: firstname},
-            lastname: { $eq: lastname},
+            phone: { $eq: phone},
             patronId: { $eq: null}
           }
         ]
