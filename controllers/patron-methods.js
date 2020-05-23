@@ -49,12 +49,7 @@ exports.signProtege = (require, result, next) => {
   Protege.update(
       { patronId: patron },
       { where: {
-        $and: [
-          {
-            phone: { $eq: phone},
-            // patronId: { $eq: null}
-          }
-        ]
+        $and: [ { phone: phone } , { patronId: null } ]
       }}
   )
       .then(res => result.send(res))
