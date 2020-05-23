@@ -52,7 +52,7 @@ exports.signProtege = (require, result, next) => {
         $and: [
           {
             phone: { $eq: phone},
-            patronId: { $eq: null}
+            // patronId: { $eq: null}
           }
         ]
       }}
