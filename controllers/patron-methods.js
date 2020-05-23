@@ -41,3 +41,24 @@ exports.getPatronsData = (require, result, next) => {
       result.status(400).json({ error: error });
     });
 };
+
+exports.signProtege = (require, result, next) => {
+  const firstname = require.body.firstname;
+  const lastname = require.body.lastname;
+  const patron = result.user.id;
+
+  Protege.update(
+      { patronId: patron },
+      { where: {
+        $and: [
+          {
+            firstname: { $eq: firstname},
+            lastname: { $eq: lastname},
+            patronId: { $eq: null}
+          }
+        ]
+      }}
+  )
+      .then(res => result.send(res))
+      .catch(error => result.status(400).json({ error: error }));
+}
