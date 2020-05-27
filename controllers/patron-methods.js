@@ -15,6 +15,7 @@ exports.getPatronsData = (require, result, next) => {
       {
         model: Protege,
         attributes: [
+          "id",
           "firstname",
           "lastname"
         ],
