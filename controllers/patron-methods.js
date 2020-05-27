@@ -15,13 +15,16 @@ exports.getPatronsData = (require, result, next) => {
       {
         model: Protege,
         attributes: [
-          "firstname",
-          "lastname"
+            "firstname",
+            "lastname",
+            "mail",
+            "phone"
         ],
         include: [
           {
             model: Exams,
             // separate: true,
+            limit: 1,
             attributes: [
               "weight",
               "glucose",
