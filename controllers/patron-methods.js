@@ -26,6 +26,7 @@ exports.getPatronsData = (require, result, next) => {
             // separate: true,
             limit: 1,
             attributes: [
+              "id",
               "weight",
               "glucose",
               "pressure",
