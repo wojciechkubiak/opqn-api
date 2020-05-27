@@ -29,7 +29,7 @@ exports.getPatronsData = (require, result, next) => {
               "pressure",
               "date"
             ],
-            order: [["date", "DESC"]],
+            order: [["date", "ASC"]],
           }
         ],
         where: {
