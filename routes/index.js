@@ -44,6 +44,6 @@ router.put('/delete-protege/:id', auth, ExamsMethodCtrl.deleteFromGroup);
 router.get('/patron-proteges', auth, PatronMethodCtrl.getPatronsData);
 router.get('/protege-data', auth, ExamsMethodCtrl.getProtegeName);
 router.put('/sign-protege', auth, PatronMethodCtrl.signProtege);
-router.get('/last-protege-exam', auth, ExamsCtrl.getLastProtegeExam);
+router.get('/last-protege-exam/:id', auth, ExamsCtrl.getLastProtegeExam);
 
 module.exports = router;
