@@ -22,6 +22,25 @@ exports.getLastExamDate = (require, result, next) => {
     });
 };
 
+exports.getLastProtegeExam = (require, result, next) => {
+  const id = require.params.id;
+
+  Exams.findAll({
+    limit: 1,
+    attributes: ["date", "weight", "glucose", "pressure"],
+    order: [["date", "DESC"]],
+    where: {
+      protegeId: id,
+    },
+  })
+    .then((exam) => {
+      result.status(200).json(exam);
+    })
+    .catch((error) => {
+      result.status(400).json({ error: error });
+    });
+};
+
 // all exams for user
 exports.getAllExams = (require, result, next) => {
   const id = require.user.id;

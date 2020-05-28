@@ -17,7 +17,9 @@ exports.getPatronsData = (require, result, next) => {
         attributes: [
           "id",
           "firstname",
-          "lastname"
+          "lastname",
+          "mail",
+          "phone"
         ],
         include: [
           {
