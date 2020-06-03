@@ -6,10 +6,9 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Made%20by-wojciechkubiak-blue"/>
-  <img src="https://img.shields.io/website?url=https%3A%2F%2Fopqn.netlify.app"/>
-  <img src="https://img.shields.io/netlify/9b34eab0-858b-4f92-863f-29b5350b9465"/>
-  <img src="https://img.shields.io/badge/react-16.13.1-informational"/>
-  <img src="https://img.shields.io/badge/typescript-3.8.3-informational"/>
+  <img src="https://img.shields.io/badge/ExpressJS-4.17.1-informational"/>
+  <img src="https://img.shields.io/badge/Sequelize-5.21.3-informational"/>
+  <img src="https://img.shields.io/badge/Babel-7.8.3-informational"/>
 </p>
 
 
@@ -50,9 +49,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-## More about ReactJS
-
-In case of my tips being unclear, check official React site [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
