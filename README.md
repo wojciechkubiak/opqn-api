@@ -37,10 +37,11 @@ As next step, you have to create PostgreSQL database. <br />
 * ### Set environment variables
 
 Next you have to set [environment variables](https://www.npmjs.com/package/dotenv) by creating .env file in root folder. In this file you have to specify four variables called:
-* ```LOCAL_NAME``` - database name
-* ```LOCAL_HOST``` - host (default "5432")
-* ```LOCAL_USER``` - user with privileges to modify data
-* ```LOCAL_PASS``` - user password
+
+```LOCAL_NAME``` - database name\
+```LOCAL_HOST``` - host (default "5432")\
+```LOCAL_USER``` - user with privileges to modify data\
+```LOCAL_PASS``` - user password\
 
 * ### `npm start`
 
