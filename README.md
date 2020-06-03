@@ -41,7 +41,7 @@ Next you have to set [environment variables](https://www.npmjs.com/package/doten
 ```LOCAL_NAME``` - database name\
 ```LOCAL_HOST``` - host, *default "5432"*\
 ```LOCAL_USER``` - user with privileges to modify data\
-```LOCAL_PASS``` - user password\
+```LOCAL_PASS``` - user password
 
 * ### `npm start`
 
