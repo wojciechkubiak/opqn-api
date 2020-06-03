@@ -18,7 +18,7 @@
 * JWT
 
 ## What this app is about
-The main assumption of the application was to implement nice looking diet app, that allows supervisors to control proteges current health data with full-fledged authentication, which prevents unwanted users from reading someones data.
+The main characteristic of the app is simplicity. There are two types of accounts, proteges and supervisors. On the side of the protege, there is one form including weight, glucose and pressure. After submit of data, data is send to the supervisor and protege job is done untill next day. On the side of supervisor, there is list of proteges included in his group and their latest health informations.
 
 ## How can I install this app
 
